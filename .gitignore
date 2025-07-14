@@ -1,0 +1,20 @@
+/.vscode
+.DS_Store
+.idea
+.env
+*.iml
+*.iws
+*.eml
+*.log
+/_playwright-report
+/_playwright-results
+/lib
+/node_modules
+/.husky/_
+.sass-cache
+out/
+tmp/**
+
+# exceptions
+!.gitkeep
+.vercel
