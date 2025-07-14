@@ -23,6 +23,7 @@ Please review this checklist before to open the PR to improve the review process
 - [ ] I have commented my change, particularly in hard-to-understand areas
 - [ ] I have made corresponding changes to the documentation
 - [ ] My changes generate no new warnings
+- [ ] My changes do not break any workflow
 
 ## Other Information
 
