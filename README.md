@@ -2,7 +2,8 @@
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](./docs/CODE_OF_CONDUCT.md)
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/rmarting/innersource-for-newbies)
-[![👷 Markdown Link](https://github.com/rmarting/innersource-for-newbies/actions/workflows/markdown-lint.yml/badge.svg)](https://github.com/rmarting/innersource-for-newbies/actions/workflows/markdown-lint.yml)
+[![👷📑 Markdown Link](https://github.com/rmarting/innersource-for-newbies/actions/workflows/markdown-lint.yml/badge.svg)](https://github.com/rmarting/innersource-for-newbies/actions/workflows/markdown-lint.yml)
+[![👷👩‍💻 Commit Link](https://github.com/rmarting/innersource-for-newbies/actions/workflows/commit-lint.yml/badge.svg)](https://github.com/rmarting/innersource-for-newbies/actions/workflows/commit-lint.yml)
 [![🔖 Publish Release 🔖](https://github.com/rmarting/innersource-for-newbies/actions/workflows/publish-release.yml/badge.svg)](https://github.com/rmarting/innersource-for-newbies/actions/workflows/publish-release.yml)
 
 ## 🌟 Mission
