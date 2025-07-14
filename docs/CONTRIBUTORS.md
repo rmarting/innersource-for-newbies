@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD010 MD033 -->
+
 # ⭐ Hall of Fame
 
 Thanks goes to these wonderful people that make this InnerSource community great.
