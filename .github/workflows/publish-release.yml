@@ -1,0 +1,75 @@
+name: 🔖 Publish next release
+
+on:
+  # Uncomment the following lines to trigger the workflow on push to the main branch
+  # For more information, see: https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#triggering-a-workflow-from-a-workflow
+  #push:
+  #  branches:
+  #    - main
+  workflow_dispatch:
+    # Allows manual triggering from the GitHub Actions tab
+
+permissions:
+  contents: write
+  pull-requests: write
+  statuses: write
+  issues: write
+
+jobs:
+  update:
+    name: Publish next release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install utilities
+        shell: bash
+        run: |
+          echo '📦️ Installing utilities...'
+          npm install -g release-please@17.0.0
+
+          echo '📦️ release-please version:'
+          release-please --version
+
+      - name: Generate Release PR and/or GitHUb Release
+        shell: bash
+        run: |
+          echo "Release for the event: ${{ github.event_name }}"
+          echo "Full Git Ref: ${{ github.ref }} - Tag Name: ${{ github.ref_name }} - Commit SHA: ${{ github.sha }}"
+          echo "🔀 Open Release PR for the new release"
+
+          # Create the PR for a new release
+          release-please release-pr \
+              --token=${{ secrets.GITHUB_TOKEN }} \
+              --api-url=https://api.github.com \
+              --graphql-url=https://api.github.com \
+              --repo-url=${{ github.repository }} 2>&1 | tee release-pr-output.txt
+          RELEASE_PR_EXIT_CODE=$?
+
+          # Capture the output content for later use
+          RELEASE_PR_OUTPUT=$(cat release-pr-output.txt)
+
+          echo "🔍️ Evaluating if a Release PR was created or not"
+
+          if [ ${RELEASE_PR_EXIT_CODE} -eq 0 ]; then
+            if echo "${RELEASE_PR_OUTPUT}" | grep -iq "opened pull request" || echo "${RELEASE_PR_OUTPUT}" | grep -iq "found 1 open release pull requests"; then
+              echo "🚩 A Release PR was created or updated. Nothing else to do."
+            else
+              echo "✨ No new release PR was created or updated. Creating the GitHub Release."
+
+              release-please github-release \
+                --token=${{ secrets.GITHUB_TOKEN }} \
+                --api-url=https://api.github.com \
+                --graphql-url=https://api.github.com \
+                --repo-url=${{ github.repository }}
+            fi
+          fi

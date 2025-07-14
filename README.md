@@ -71,10 +71,11 @@ chronologically ordered list of notable changes for each version of this project
 Realising a new version only requires to push a new tag following the
 `v[0-9]+.[0-9]+.[0-9]+` pattern (e.g: `v0.1.0`, `v0.1.1`...).
 
-The [release-drafter.yml](.github/workflows/release-drafter.yml) workflow is triggered once
-the new tag is pushed and create the new release. This workflow is based on the
-[Release Drafter](https://github.com/marketplace/actions/release-drafter) GitHub action, automating
-the creation of the release, including the update of the Change Log file.
+The [publish-release.yml](.github/workflows/publish-release.yml) workflow manages the release life cycle based on the
+commits pushed into the repository. Based on [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/#summary)
+the workflow will create a new major release including new features (`feat:`),
+or a minor release fixing issues (`fix:`). This workflow is based on [Release Please](https://github.com/googleapis/release-please)
+to automate the creation of the release, including the update of the ChangeLog file.
 
 ## Publishing content
 

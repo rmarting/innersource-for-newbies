@@ -1,0 +1,30 @@
+{
+  "packages": {
+    ".": {
+      "changelog-host": "https://github.com",
+      "changelog-path": "CHANGELOG.md",
+      "release-type": "simple",
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": true,
+      "draft": false,
+      "prerelease": false,
+      "pull-request-title-pattern": "chore${scope}: release${component} ${version}",
+      "component-no-space": false,
+      "changelog-sections": [
+        { "type": "feat", "section": "✨ New Features", "hidden": false },
+        { "type": "fix", "section": "🐛 Bug Fixes", "hidden": false },
+        { "type": "perf", "section": "🚀 Performance Improvements", "hidden": false },
+        { "type": "revert", "section": "⏪ Reverts", "hidden": false },
+        { "type": "docs", "section": "📝 Documentation Updates", "hidden": false },
+        { "type": "style", "section": "🎨 Code Style Changes", "hidden": false },
+        { "type": "refactor", "section": "♻️ Code Refactoring", "hidden": false },
+        { "type": "test", "section": "✅ Test Improvements", "hidden": false },
+        { "type": "build", "section": "🏗️ Build System Changes", "hidden": false },
+        { "type": "ci", "section": "👷 CI/CD Updates", "hidden": false },
+        { "type": "chore", "section": "⚙️ Miscellaneous Chores", "hidden": false },
+        { "type": "deps", "section": "📦️ Dependencies", "hidden": false }
+      ]
+    }
+  },
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
+}
