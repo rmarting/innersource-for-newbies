@@ -6,4 +6,4 @@ Here you could find our set of communication channels to speak, discuss, or hear
 
 This product is tracked in the following sites:
 
-* **GitHub Issues**: https://github.com/rmarting/innersource-for-newbies/issues
+* **GitHub Issues**: <https://github.com/rmarting/innersource-for-newbies/issues>
