@@ -1,0 +1,11 @@
+aliveStatusCodes:
+  - 200
+dirs:
+  - ./
+excludedDirs:
+  - .github/
+excludedFiles:
+  - LICENSE
+ignorePatterns:
+  - pattern: '^http://localhost.*$'
+useGitIgnore: true

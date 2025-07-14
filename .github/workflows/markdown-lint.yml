@@ -1,0 +1,102 @@
+name: 👷📑 Markdown Lint Scan
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+  workflow_dispatch:
+    # Allows manual triggering from the GitHub Actions tab
+
+jobs:
+  markdownlint_scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install linkspector CLI
+        shell: bash
+        run: |
+          npm install -g @umbrelladocs/linkspector@0.4.4
+          echo '🔗 linkspector version:'
+          linkspector --version
+
+          if [ "$(lsb_release -rs)" = "24.04" ]; then
+            echo 'Setting up Chrome Linux Sandbox'
+            # Based on the instructions found here: https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md
+            echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
+            echo 'Done'
+          fi
+
+      - name: Install markdownlint-cli2 CLI
+        shell: bash
+        run: |
+          npm install -g markdownlint-cli2@0.18.1
+          echo '🔗 markdown version:'
+          markdownlint-cli2 --version
+
+      - name: Run Linkspector Markdown links
+        id: linkspector_analysis
+        shell: bash
+        run: |
+          # Run linkspector and save output to a file
+          linkspector check -c ".github/linters/linkspector.yml" -s 2>&1 | tee linkspector-output.txt
+
+          # Capture the output content for later use
+          LINKSPECTOR_OUTPUT=$(cat linkspector-output.txt)
+
+          # Set the output for this step
+          echo "linkspector_results<<EOF" >> $GITHUB_OUTPUT
+          echo "$LINKSPECTOR_OUTPUT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+          echo "Markdown lint analysis completed and output captured."
+
+      - name: Display Linkspector Markdown Output
+        if: always()
+        run: |
+          echo "--- Linkspector Analysis Results ---"
+          echo '${{ steps.linkspector_analysis.outputs.linkspector_results }}'
+          echo "--------------------------------------"
+
+      - name: Run Markdown Lint Analysis and Capture Output
+        if: always()
+        id: markdownlint_analysis
+        shell: bash
+        run: |
+          # Run markdownlint-cli2 and save output to a file
+          markdownlint-cli2 --config ".github/linters/.markdownlint-cli2.yaml" \
+            "**/*.md" \
+            "#.github/" 2>&1 | tee markdownlint-output.txt
+
+          # Capture the output content for later use
+          MARKDOWNLINT_OUTPUT=$(cat markdownlint-output.txt)
+
+          # Set the output for this step
+          echo "markdownlint_results<<EOF" >> $GITHUB_OUTPUT
+          echo "$MARKDOWNLINT_OUTPUT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+          echo "Markdown lint analysis completed and output captured."
+
+      - name: Display Markdown Lint Output
+        if: always()
+        run: |
+          echo "--- Markdown Lint Analysis Results ---"
+          echo '${{ steps.markdownlint_analysis.outputs.markdownlint_results }}'
+          echo "--------------------------------------"
+
+      - name: Upload Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: linter-results-${{ github.sha }}
+          retention-days: 7
+          path: |
+            linkspector-output.txt
+            markdownlint-output.txt
