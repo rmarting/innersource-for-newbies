@@ -5,4 +5,4 @@ to test your knowledge about InnerSource and practice with some of the collabora
 
 Do you accept the challenge? Cool, please, choose the game and play it!
 
-🤔💡 The [Contribution Guide](../CONTRIBUTING.md) is your friend 😉.
+🤔💡 The [📝 Contribution Guide](../CONTRIBUTING.md) is your friend 😉.
