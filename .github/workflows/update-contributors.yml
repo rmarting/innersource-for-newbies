@@ -1,9 +1,9 @@
 name: 👥 Update contributors family
 
 on:
-  #push:
-  #  branches:
-  #    - main
+  push:
+    branches:
+      - main
   workflow_dispatch:
     # Allows manual triggering from the GitHub Actions tab
 
