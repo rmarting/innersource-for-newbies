@@ -17,7 +17,7 @@ Please, link to the right one.
 Please review this checklist before to open the PR to improve the review process:
 
 - [ ] The commit messages follow our guidelines based on [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/#summary)
-- [ ] My change follows the style guidelines of this project
+- [ ] My change follows the [style guidelines](https://github.com/DavidAnson/markdownlint/tree/main?tab=readme-ov-file#rules--aliases) of this project
 - [ ] I have checked my code and corrected any misspellings
 - [ ] I have performed a self-review of my own change
 - [ ] I have commented my change, particularly in hard-to-understand areas
