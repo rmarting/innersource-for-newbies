@@ -6,6 +6,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2](https://github.com/rmarting/innersource-for-newbies/compare/v1.0.1...v1.0.2) (2025-07-15)
+
+
+### 📝 Documentation Updates
+
+* remove unreleased content ([3c5af02](https://github.com/rmarting/innersource-for-newbies/commit/3c5af02d533fda3b631b11564bfd33ca26bfb268))
+
+
+### ⚙️ Miscellaneous Chores
+
+* disable markdown rules in changelog file ([76cd75c](https://github.com/rmarting/innersource-for-newbies/commit/76cd75cad6907e57356abd72344f6d24583935e3))
+
 ## [1.0.1](https://github.com/rmarting/innersource-for-newbies/compare/v1.0.0...v1.0.1) (2025-07-15)
 
 
