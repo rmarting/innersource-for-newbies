@@ -62,9 +62,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * add initial content ([7ab7d69](https://github.com/rmarting/innersource-for-newbies/commit/7ab7d696c3cf4ec4e77d1c0c97c51795c15d6275))
 * add welcome content ([5e8945a](https://github.com/rmarting/innersource-for-newbies/commit/5e8945ae1cc6e61cd4026a083e1315cdc95c35c5))
-
-## [Unreleased](https://gitlab.consulting.redhat.com/innersource/innersource-for-newbies/compare/v0.0.0...HEAD)
-
-Please do not update the unreleased notes.
-
-<!-- Content should be placed here -->
