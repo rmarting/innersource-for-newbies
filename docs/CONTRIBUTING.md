@@ -7,7 +7,7 @@
 ## What to contribute
 
 * 🐛 Fixing bug/issues/typos
-* 🪄Adding new features/enhancements
+* 🪄 Adding new features/enhancements
 * 🖹 Adding or extending slide content
 * 📝 Adding/Updating commands, blocks, texts...
 * 👋 Whatever you want to add with some value for this project
@@ -27,7 +27,10 @@ Fork the repo, create a local branch, add or change files, and create a pull req
 via the git web interface, the command line, or a git client of your choice.
 
 Once you create a pull request, we will review and provide feedback, but it might take me some
-time to comment, review, or merge it.
+time to comment, review, or merge it. Don't forget to review our rules about:
+
+* Usage of [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/#summary)
+* Follow [Markdown Rules](https://github.com/DavidAnson/markdownlint/tree/main?tab=readme-ov-file#rules--aliases)
 
 ### Before you contribute
 

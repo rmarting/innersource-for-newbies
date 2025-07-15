@@ -40,7 +40,10 @@ The content will be available at [http://localhost:3000](http://localhost:3000).
 ## 🛈 Further information
 
 The content is mostly created using [Markdown](https://www.markdownguide.org/) syntax, so you do not need
-to use HTML, JavaScript or other languages to prepare the content of this site. Easy, right?
+to use HTML, JavaScript or other languages to prepare the content of this site. Easy, right? There is some
+rules followed to maintain an standard structure and layout of the markdown files, please, take a look
+of [them](https://github.com/DavidAnson/markdownlint/tree/main?tab=readme-ov-file#rules--aliases). There
+is linter to verify that everything is ok.
 
 **docsify** is used to generate the main structure of the content, including a sidebar with links to the
 main sections, and **reveal.js** is used to create slides for some topics linked from the main site. Both
@@ -76,7 +79,7 @@ The [publish-release.yml](.github/workflows/publish-release.yml) workflow manage
 commits pushed into the repository. Based on [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/#summary)
 the workflow will create a new major release including new features (`feat:`),
 or a minor release fixing issues (`fix:`). This workflow is based on [Release Please](https://github.com/googleapis/release-please)
-to automate the creation of the release, including the update of the ChangeLog file.
+to automate the creation of the release, including the update of the [`ChangeLog`](./CHANGELOG.md) file.
 
 ## Publishing content
 
