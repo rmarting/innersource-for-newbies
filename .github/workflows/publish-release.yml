@@ -35,7 +35,7 @@ jobs:
         shell: bash
         run: |
           echo '📦️ Installing utilities...'
-          npm install -g release-please@17.0.0
+          npm install -g release-please@17.1.1
 
           echo '📦️ release-please version:'
           release-please --version
