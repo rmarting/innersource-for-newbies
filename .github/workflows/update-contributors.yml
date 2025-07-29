@@ -21,7 +21,7 @@ jobs:
 
       - id: update-contributors
         name: Update contributors family
-        uses: akhilmhdh/contributors-readme-action@v2.3.10
+        uses: akhilmhdh/contributors-readme-action@v2.3.11
         with:
           readme_path: docs/CONTRIBUTORS.md
           commit_message: 'docs: update contributors family'
